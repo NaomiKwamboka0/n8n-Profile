@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naomi Kwamboka - AI and Automation Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2447;--navy2:#163772;--blue:#2563EB;--rose:#E8547A;--rose2:#F9A8C0;--pearl:#F8F6FF;--white:#FFFFFF;--ink:#0B2447;--muted:#5C6B8A;--border:#D6DDEF;--card:#F0F4FF;--head:'Playfair Display',serif;--body:'Plus Jakarta Sans',sans-serif;--mono:'Space Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(255,255,255,0.94);backdrop-filter:blur(20px);border-bottom:2px solid var(--border)}
+.nav-logo{font-family:var(--head);font-size:1.1rem;font-weight:900;color:var(--navy)}
+.nav-logo span{color:var(--rose)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.hero{min-height:100vh;background:var(--navy);position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:9rem 4rem 5rem;overflow:hidden;gap:3rem}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,84,122,0.18) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:20%;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-left{position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.75rem;font-family:var(--mono);font-size:0.72rem;color:var(--rose2);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.8rem;opacity:0;animation:fadeUp 0.7s 0.2s forwards}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--rose);display:inline-block;animation:pulse 2s ease-in-out infinite}
+.hero-title{font-family:var(--head);font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:900;line-height:1.02;color:var(--white);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.7s 0.35s forwards}
+.hero-title em{font-style:italic;color:var(--rose2);display:block}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.65);font-weight:300;max-width:460px;margin-bottom:2.5rem;line-height:1.75;opacity:0;animation:fadeUp 0.7s 0.5s forwards}
+.hero-sub strong{color:var(--white);font-weight:600}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s 0.65s forwards}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.8rem;border-radius:60px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none;font-family:var(--body)}
+.btn-primary{background:var(--rose);color:var(--white)}
+.btn-primary:hover{background:#c43d63;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;opacity:0;animation:fadeUp 0.7s 0.5s forwards}
+.hero-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);border-radius:16px;overflow:hidden;width:100%;max-width:420px}
+.hstat{background:rgba(255,255,255,0.05);padding:2.2rem 1.8rem;display:flex;flex-direction:column;gap:0.3rem;transition:background 0.2s}
+.hstat:hover{background:rgba(255,255,255,0.09)}
+.hstat-icon{font-size:1.6rem;margin-bottom:0.3rem}
+.hstat-num{font-family:var(--head);font-size:2.6rem;font-weight:900;color:var(--white);line-height:1}
+.hstat-num span{color:var(--rose2)}
+.hstat-label{font-size:0.75rem;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:0.06em;text-transform:uppercase}
+.wave-divider{display:block;width:100%;line-height:0}
+.about-strip{background:var(--pearl);border-top:2px solid var(--border);border-bottom:2px solid var(--border);padding:5rem 4rem}
+.about-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-text p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1rem}
+.about-text p strong{color:var(--navy);font-weight:600}
+.section{padding:7rem 4rem;max-width:1300px;margin:0 auto}
+.section-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--mono);font-size:0.7rem;color:var(--rose);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem}
+.eyebrow-line{width:2rem;height:2px;background:var(--rose);border-radius:1px}
+.section-title{font-family:var(--head);font-weight:900;font-size:clamp(2rem,4vw,3.2rem);color:var(--navy);letter-spacing:-0.02em;margin-bottom:0.5rem;line-height:1.1}
+.section-title em{font-style:italic;color:var(--rose)}
+.section-sub{color:var(--muted);font-size:1rem;font-weight:300;max-width:520px;margin-bottom:4rem}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.pcard{background:var(--white);border:2px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;transition:all 0.3s;display:flex;flex-direction:column;position:relative}
+.pcard:hover{border-color:var(--rose2);transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,36,71,0.12)}
+.pcard-img-wrap{position:relative;height:190px;overflow:hidden;background:var(--card)}
+.pcard-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;opacity:0.85}
+.pcard:hover .pcard-img{transform:scale(1.04)}
+.pcard-num{position:absolute;top:1rem;left:1rem;background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.68rem;padding:0.3rem 0.7rem;border-radius:60px;letter-spacing:0.08em}
+.pcard-body{padding:1.8rem;display:flex;flex-direction:column;gap:0.9rem;flex:1}
+.pcard-cat{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.65rem;color:var(--rose);letter-spacing:0.12em;text-transform:uppercase}
+.pcard-cat-dot{width:5px;height:5px;border-radius:50%;background:var(--rose)}
+.pcard-title{font-family:var(--head);font-size:1.3rem;font-weight:700;color:var(--navy);line-height:1.2}
+.pcard-desc{font-size:0.88rem;color:var(--muted);line-height:1.65}
+.pcard-desc strong{color:var(--navy);font-weight:600}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);margin-top:auto}
+.pcard-nodes{font-family:var(--mono);font-size:0.72rem;color:var(--muted)}
+.pcard-nodes strong{color:var(--navy)}
+.pcard-arrow{width:2.2rem;height:2.2rem;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--navy);transition:all 0.25s}
+.pcard:hover .pcard-arrow{background:var(--rose);color:var(--white);transform:rotate(45deg)}
+.stack-bg{background:var(--navy);padding:7rem 0}
+.stack-inner{max-width:1300px;margin:0 auto;padding:0 4rem}
+.stack-inner .section-title{color:var(--white)}
+.stack-inner .section-title em{color:var(--rose2)}
+.stack-inner .section-sub{color:rgba(255,255,255,0.5);margin-bottom:3rem}
+.stack-inner .section-eyebrow{color:var(--rose2)}
+.stack-inner .eyebrow-line{background:var(--rose2)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem}
+.sitem{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem 1.2rem;display:flex;flex-direction:column;gap:0.5rem;transition:all 0.25s;cursor:default}
+.sitem:hover{background:rgba(255,255,255,0.11);border-color:var(--rose2);transform:translateY(-3px)}
+.sitem-icon{font-size:1.6rem}
+.sitem-name{font-weight:700;font-size:0.88rem;color:var(--white)}
+.sitem-cat{font-size:0.68rem;color:rgba(255,255,255,0.4);font-family:var(--mono);letter-spacing:0.06em}
+.contact-wrap{background:linear-gradient(135deg,var(--navy) 60%,#1a3a6e 100%);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
+.contact-wrap::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,84,122,0.1) 0%,transparent 70%);pointer-events:none}
+.contact-wrap .section-title{color:var(--white);margin-bottom:1rem}
+.contact-wrap .section-title em{color:var(--rose2)}
+.contact-wrap p{color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 2.5rem;font-weight:300}
+.contact-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+.cbtn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.9rem 1.8rem;border-radius:60px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all 0.25s;font-family:var(--body)}
+.cbtn-primary{background:var(--rose);color:var(--white)}
+.cbtn-primary:hover{background:#c43d63;transform:translateY(-2px)}
+.cbtn-ghost{background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.2);color:var(--white)}
+.cbtn-ghost:hover{border-color:var(--rose2);background:rgba(232,84,122,0.1)}
+footer{background:#07162e;padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-family:var(--mono);font-size:0.7rem;color:rgba(255,255,255,0.3)}
+.overlay{position:fixed;inset:0;background:rgba(11,36,71,0.75);backdrop-filter:blur(14px);z-index:500;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--white);border-radius:24px;overflow:hidden;max-width:740px;width:100%;max-height:88vh;overflow-y:auto;transform:scale(0.95) translateY(20px);transition:transform 0.35s;position:relative}
+.overlay.open .modal{transform:scale(1) translateY(0)}
+.modal-img{width:100%;height:230px;object-fit:cover;display:block;opacity:0.82}
+.modal-inner{padding:2.5rem}
+.modal-cat{font-family:var(--mono);font-size:0.68rem;color:var(--rose);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}
+.modal-title{font-family:var(--head);font-size:2rem;font-weight:900;color:var(--navy);margin-bottom:1rem;line-height:1.1}
+.modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.8rem}
+.mtag{font-size:0.7rem;font-family:var(--mono);padding:0.25rem 0.7rem;background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:60px}
+.modal-label{font-family:var(--mono);font-size:0.68rem;color:var(--rose);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;margin-top:1.6rem}
+.modal-text{font-size:0.92rem;color:var(--muted);line-height:1.75}
+.modal-text strong{color:var(--navy);font-weight:600}
+.flow{background:var(--navy);border-radius:14px;padding:1.6rem 1.8rem;margin-top:0.75rem;font-family:var(--mono);font-size:0.76rem;color:rgba(255,255,255,0.7);line-height:1.9;white-space:pre-wrap}
+.modal-close-btn{position:absolute;top:1.2rem;right:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;background:rgba(11,36,71,0.08);border:none;font-size:1.1rem;cursor:pointer;color:var(--navy);display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:10}
+.modal-close-btn:hover{background:rgba(232,84,122,0.12);color:var(--rose)}
+.about-graphic{display:flex;justify-content:center;align-items:center}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.7}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--pearl)}
+::-webkit-scrollbar-thumb{background:var(--rose2);border-radius:3px}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  .nav-links a{font-size:0.75rem}
+  .hero{grid-template-columns:1fr;padding:7rem 1.5rem 4rem;gap:2rem}
+  .hero-stats-grid{grid-template-columns:1fr 1fr}
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .section{padding:4rem 1.5rem}
+  .about-strip{padding:4rem 1.5rem}
+  .stack-inner{padding:0 1.5rem}
+  .contact-wrap{padding:5rem 1.5rem}
+  footer{padding:1.5rem;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">NKO<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice">
+    <circle cx="1200" cy="150" r="260" fill="none" stroke="rgba(232,84,122,0.12)" stroke-width="1.5"/>
+    <circle cx="1200" cy="150" r="190" fill="none" stroke="rgba(232,84,122,0.08)" stroke-width="1"/>
+    <circle cx="1200" cy="150" r="120" fill="none" stroke="rgba(232,84,122,0.06)" stroke-width="1"/>
+    <circle cx="200" cy="700" r="180" fill="none" stroke="rgba(37,99,235,0.12)" stroke-width="1.5"/>
+    <g fill="rgba(255,255,255,0.05)">
+      <circle cx="900" cy="80" r="2.5"/><circle cx="950" cy="80" r="2.5"/><circle cx="1000" cy="80" r="2.5"/><circle cx="1050" cy="80" r="2.5"/>
+      <circle cx="900" cy="130" r="2.5"/><circle cx="950" cy="130" r="2.5"/><circle cx="1000" cy="130" r="2.5"/><circle cx="1050" cy="130" r="2.5"/>
+      <circle cx="900" cy="180" r="2.5"/><circle cx="950" cy="180" r="2.5"/><circle cx="1000" cy="180" r="2.5"/><circle cx="1050" cy="180" r="2.5"/>
+      <circle cx="900" cy="230" r="2.5"/><circle cx="950" cy="230" r="2.5"/><circle cx="1000" cy="230" r="2.5"/><circle cx="1050" cy="230" r="2.5"/>
+    </g>
+    <g stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none">
+      <line x1="50" y1="500" x2="250" y2="450"/><line x1="250" y1="450" x2="450" y2="520"/>
+      <line x1="450" y1="520" x2="650" y2="470"/>
+    </g>
+    <g fill="rgba(232,84,122,0.3)">
+      <circle cx="50" cy="500" r="4"/><circle cx="250" cy="450" r="4"/>
+      <circle cx="450" cy="520" r="4"/><circle cx="650" cy="470" r="4"/>
+    </g>
+  </svg>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="hero-dot"></span> Available for Projects</div>
+    <h1 class="hero-title">Naomi<br>Kwamboka<em>Automation Engineer</em></h1>
+    <p class="hero-sub">I build <strong>intelligent automation systems</strong> that connect AI, cloud APIs, and business tools into pipelines that think, decide, and act completely on their own.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#projects">View My Work</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats-grid">
+      <div class="hstat"><div class="hstat-icon">&#9889;</div><div class="hstat-num">191<span>+</span></div><div class="hstat-label">Nodes Built</div></div>
+      <div class="hstat"><div class="hstat-icon">&#128640;</div><div class="hstat-num">8</div><div class="hstat-label">Live Workflows</div></div>
+      <div class="hstat"><div class="hstat-icon">&#129302;</div><div class="hstat-num">3</div><div class="hstat-label">AI Models Used</div></div>
+      <div class="hstat"><div class="hstat-icon">&#127757;</div><div class="hstat-num">2</div><div class="hstat-label">Clients Served</div></div>
+    </div>
+  </div>
+</div>
+
+<svg class="wave-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+  <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill="#0B2447"/>
+</svg>
+
+<div class="about-strip" id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-eyebrow"><span class="eyebrow-line"></span> Who I Am</div>
+      <h2 class="section-title" style="margin-bottom:1.5rem">Not just workflows.<br><em>Systems that think.</em></h2>
+      <p>I am an <strong>Automation and AI Systems Engineer</strong> currently building automation infrastructure for a media company in Germany, where my systems power day-to-day operations.</p>
+      <p>My work goes beyond connecting apps. I build <strong>multi-stage intelligent pipelines</strong> where AI makes decisions, APIs do the heavy lifting, and everything runs without anyone needing to press a button.</p>
+      <p>Based in <strong>Nairobi, Kenya</strong>. Working globally. Holding a <strong>BSc in Mathematics and Computer Science</strong> and certifications in AWS Cloud, GCP Security, and Generative AI.</p>
+    </div>
+    <div class="about-graphic reveal">
+      <svg width="380" height="360" viewBox="0 0 380 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:float 4s ease-in-out infinite">
+        <line x1="90" y1="80" x2="175" y2="130" stroke="#D6DDEF" stroke-width="2"/>
+        <line x1="90" y1="180" x2="175" y2="130" stroke="#D6DDEF" stroke-width="2"/>
+        <line x1="90" y1="280" x2="175" y2="230" stroke="#D6DDEF" stroke-width="2"/>
+        <line x1="90" y1="180" x2="175" y2="230" stroke="#D6DDEF" stroke-width="2"/>
+        <line x1="215" y1="130" x2="290" y2="80" stroke="#E8547A" stroke-width="2.5"/>
+        <line x1="215" y1="130" x2="290" y2="180" stroke="#E8547A" stroke-width="2.5"/>
+        <line x1="215" y1="230" x2="290" y2="180" stroke="#2563EB" stroke-width="2.5"/>
+        <line x1="215" y1="230" x2="290" y2="280" stroke="#2563EB" stroke-width="2.5"/>
+        <line x1="175" y1="180" x2="215" y2="180" stroke="#0B2447" stroke-width="3"/>
+        <rect x="40" y="55" width="100" height="50" rx="12" fill="#0B2447"/>
+        <text x="90" y="83" text-anchor="middle" fill="white" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">Trigger</text>
+        <text x="90" y="97" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Space Mono">Google Sheets</text>
+        <rect x="40" y="155" width="100" height="50" rx="12" fill="#0B2447"/>
+        <text x="90" y="183" text-anchor="middle" fill="white" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">API Fetch</text>
+        <text x="90" y="197" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Space Mono">Easybill</text>
+        <rect x="40" y="255" width="100" height="50" rx="12" fill="#0B2447"/>
+        <text x="90" y="283" text-anchor="middle" fill="white" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">Drive Scan</text>
+        <text x="90" y="297" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Space Mono">Google Drive</text>
+        <rect x="155" y="105" width="80" height="50" rx="12" fill="#E8547A"/>
+        <text x="195" y="130" text-anchor="middle" fill="white" font-size="10" font-family="Plus Jakarta Sans" font-weight="700">AI Agent</text>
+        <text x="195" y="145" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="8" font-family="Space Mono">Gemini</text>
+        <rect x="155" y="205" width="80" height="50" rx="12" fill="#2563EB"/>
+        <text x="195" y="230" text-anchor="middle" fill="white" font-size="10" font-family="Plus Jakarta Sans" font-weight="700">AI Agent</text>
+        <text x="195" y="245" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="8" font-family="Space Mono">Claude</text>
+        <rect x="240" y="55" width="100" height="50" rx="12" fill="#F0F4FF" stroke="#D6DDEF" stroke-width="1.5"/>
+        <text x="290" y="83" text-anchor="middle" fill="#0B2447" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">Write Sheet</text>
+        <text x="290" y="97" text-anchor="middle" fill="#5C6B8A" font-size="8" font-family="Space Mono">Sheets API</text>
+        <rect x="240" y="155" width="100" height="50" rx="12" fill="#F0F4FF" stroke="#D6DDEF" stroke-width="1.5"/>
+        <text x="290" y="183" text-anchor="middle" fill="#0B2447" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">WhatsApp</text>
+        <text x="290" y="197" text-anchor="middle" fill="#5C6B8A" font-size="8" font-family="Space Mono">Evolution API</text>
+        <rect x="240" y="255" width="100" height="50" rx="12" fill="#F0F4FF" stroke="#D6DDEF" stroke-width="1.5"/>
+        <text x="290" y="283" text-anchor="middle" fill="#0B2447" font-size="10" font-family="Plus Jakarta Sans" font-weight="600">Slack Alert</text>
+        <text x="290" y="297" text-anchor="middle" fill="#5C6B8A" font-size="8" font-family="Space Mono">Notification</text>
+        <text x="190" y="345" text-anchor="middle" fill="#5C6B8A" font-size="9" font-family="Space Mono" letter-spacing="2">n8n workflow diagram</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<svg class="wave-divider" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--pearl)">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,0 L0,0 Z" fill="var(--pearl)"/>
+</svg>
+
+<section class="section" id="projects">
+  <div class="reveal">
+    <div class="section-eyebrow"><span class="eyebrow-line"></span> Selected Work</div>
+    <h2 class="section-title">My <em>Projects</em></h2>
+    <p class="section-sub">Click any project card to see exactly how it works — the problem, the step-by-step flow, and the design decisions behind it.</p>
+  </div>
+  <div class="projects-grid reveal">
+
+    <div class="pcard" onclick="openModal('p1')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1655720033654-a4239dd42d10?w=700&q=80" alt="Auto Report Filer" loading="lazy">
+        <div class="pcard-num">01</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> AI · Google Drive · Google Sheets</div>
+        <h3 class="pcard-title">Auto Report Filer</h3>
+        <p class="pcard-desc">Clients send reports in <strong>any file format</strong>. This system reads every one of them and files the data into the right spreadsheet automatically — no matter what the file looks like inside.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>46</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p2')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&q=80" alt="Film Revenue Reporter" loading="lazy">
+        <div class="pcard-num">02</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> Easybill · Google Sheets API · Slack</div>
+        <h3 class="pcard-title">Film Revenue Reporter</h3>
+        <p class="pcard-desc">An invoice comes in — this system <strong>reads the film contract</strong>, builds the right revenue columns, writes the data row, and reports to Slack. Zero manual work.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>77</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p3')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=700&q=80" alt="Invoice Inventory Sync" loading="lazy">
+        <div class="pcard-num">03</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> Easybill · Google Sheets · Google Drive</div>
+        <h3 class="pcard-title">Invoice Inventory Sync</h3>
+        <p class="pcard-desc">Fetches invoices, cross-checks the inventory, and <strong>blocks duplicate entries</strong> before writing anything new. Three data sources fetched simultaneously.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>9</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p4')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700&q=80" alt="AI CV Generator" loading="lazy">
+        <div class="pcard-num">04</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> Gemini AI · Structured Output · Word Doc</div>
+        <h3 class="pcard-title">AI CV Generator</h3>
+        <p class="pcard-desc">Paste any raw CV, assign a job title — AI <strong>rewrites the whole thing</strong> for a specific industry proposal and outputs a ready-to-submit branded Word document.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>5</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p5')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=700&q=80" alt="WhatsApp Invoice Sender" loading="lazy">
+        <div class="pcard-num">05</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> Evolution API · WhatsApp · PDF</div>
+        <h3 class="pcard-title">WhatsApp Invoice Sender</h3>
+        <p class="pcard-desc">A sale is recorded in Google Sheets — a <strong>PDF invoice is generated and sent straight to the customer on WhatsApp</strong>, then the row is marked as sent.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>15</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p6')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1586941962799-2f31c7e06b3e?w=700&q=80" alt="Payment Reminder Bot" loading="lazy">
+        <div class="pcard-num">06</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> WhatsApp · Schedule · Smart Logic</div>
+        <h3 class="pcard-title">Payment Reminder Bot</h3>
+        <p class="pcard-desc">Runs every morning at 9AM. Checks who owes money, calculates how overdue they are, <strong>picks the right tone</strong> from friendly to firm, and sends via WhatsApp.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>10</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p7')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80" alt="Customer Holiday Messenger" loading="lazy">
+        <div class="pcard-num">07</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> Claude Haiku · WhatsApp · Kenya Holidays</div>
+        <h3 class="pcard-title">Customer Holiday Messenger</h3>
+        <p class="pcard-desc">On Kenya public holidays and month-starts, <strong>Claude AI writes a unique personal message</strong> for every single customer — different each time, sent automatically on WhatsApp.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>16</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+    <div class="pcard" onclick="openModal('p8')">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80" alt="Flight Finder and Alerts" loading="lazy">
+        <div class="pcard-num">08</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-cat"><span class="pcard-cat-dot"></span> SerpAPI · AviationStack · Gmail</div>
+        <h3 class="pcard-title">Flight Finder and Alerts</h3>
+        <p class="pcard-desc">One click: all flights searched, <strong>earliest departure found</strong>, every option logged to Sheets, live status checked, and a formatted email alert sent — all at once.</p>
+        <div class="pcard-footer"><span class="pcard-nodes"><strong>13</strong> nodes</span><div class="pcard-arrow">&#8599;</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="stack-bg" id="stack">
+  <div class="stack-inner">
+    <div class="reveal">
+      <div class="section-eyebrow"><span class="eyebrow-line"></span> Technologies</div>
+      <h2 class="section-title">Full <em>Stack</em></h2>
+      <p class="section-sub">Every tool I use in production — tested, deployed, and running live.</p>
+    </div>
+    <div class="stack-grid reveal">
+      <div class="sitem"><div class="sitem-icon">&#9889;</div><div class="sitem-name">n8n</div><div class="sitem-cat">Automation</div></div>
+      <div class="sitem"><div class="sitem-icon">&#129302;</div><div class="sitem-name">Gemini</div><div class="sitem-cat">Google AI</div></div>
+      <div class="sitem"><div class="sitem-icon">&#129504;</div><div class="sitem-name">Claude</div><div class="sitem-cat">Anthropic AI</div></div>
+      <div class="sitem"><div class="sitem-icon">&#9729;</div><div class="sitem-name">GCP</div><div class="sitem-cat">Cloud Platform</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128051;</div><div class="sitem-name">Docker</div><div class="sitem-cat">Containers</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128039;</div><div class="sitem-name">Linux</div><div class="sitem-cat">Infrastructure</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128013;</div><div class="sitem-name">Python</div><div class="sitem-cat">Scripting</div></div>
+      <div class="sitem"><div class="sitem-icon">&#9881;</div><div class="sitem-name">JavaScript</div><div class="sitem-cat">Scripting</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128241;</div><div class="sitem-name">Evolution API</div><div class="sitem-cat">WhatsApp</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128202;</div><div class="sitem-name">Sheets API</div><div class="sitem-cat">Google</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128193;</div><div class="sitem-name">Drive API</div><div class="sitem-cat">Google</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128172;</div><div class="sitem-name">Slack</div><div class="sitem-cat">Alerts</div></div>
+      <div class="sitem"><div class="sitem-icon">&#9729;</div><div class="sitem-name">AWS</div><div class="sitem-cat">Cloud</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128279;</div><div class="sitem-name">GitHub</div><div class="sitem-cat">Version Control</div></div>
+      <div class="sitem"><div class="sitem-icon">&#127760;</div><div class="sitem-name">Node.js</div><div class="sitem-cat">Runtime</div></div>
+      <div class="sitem"><div class="sitem-icon">&#128268;</div><div class="sitem-name">REST APIs</div><div class="sitem-cat">Integration</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-wrap" id="contact">
+  <div style="position:relative;z-index:2">
+    <div class="section-eyebrow" style="justify-content:center;color:var(--rose2)">
+      <span style="width:2rem;height:2px;background:var(--rose2);border-radius:1px;display:inline-block"></span>
+      Get In Touch
+    </div>
+    <h2 class="section-title">Let's build something <em>together.</em></h2>
+    <p>Open to freelance automation projects, n8n consulting, and new client work. Based in Nairobi and working globally.</p>
+    <div class="contact-btns">
+      <a class="cbtn cbtn-primary" href="mailto:ateidiana@gmail.com">&#9993; ateidiana@gmail.com</a>
+      <a class="cbtn cbtn-ghost" href="https://linkedin.com/in/naomi-kwamboka" target="_blank">&#128279; LinkedIn</a>
+      <a class="cbtn cbtn-ghost" href="https://credly.com/users/naomi-onyancha" target="_blank">&#127381; Credly</a>
+      <a class="cbtn cbtn-ghost" href="tel:+254742765558">&#128222; +254 742 765 558</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&#169; 2026 Naomi Kwamboka Onyancha &#183; Nairobi, Kenya</p>
+  <p>Built with n8n &#183; Powered by curiosity</p>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close-btn" onclick="closeModal()">&#10005;</button>
+    <img class="modal-img" id="m-img" src="" alt="">
+    <div class="modal-inner">
+      <div class="modal-cat" id="m-cat"></div>
+      <h2 class="modal-title" id="m-title"></h2>
+      <div class="modal-tags" id="m-tags"></div>
+      <div class="modal-label">The Problem</div>
+      <p class="modal-text" id="m-problem"></p>
+      <div class="modal-label">How It Works</div>
+      <div class="flow" id="m-flow"></div>
+      <div class="modal-label">Key Design Decisions</div>
+      <p class="modal-text" id="m-decisions"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const P={p1:{cat:"01 of 08 · Company A (Media) · 46 nodes",title:"Auto Report Filer",img:"https://images.unsplash.com/photo-1655720033654-a4239dd42d10?w=900&q=80",tags:["Google Drive","Google Sheets","Gemini AI x2","HTTP Request","Code JS","Split In Batches","Wait","Merge","Switch","If"],problem:"The company receives financial reports from multiple clients every month. Each client sends a completely different format — some use Excel, some send PDFs, some send scanned documents. The data inside each file is structured differently too. Getting all of it filed into the right Google Sheet, in the right tab, with the right column headers — manually — was taking hours every week and growing worse as the client list expanded.",flow:"STEP 1  Folder Watcher
+   New file lands in Google Drive
+   Client identified by folder name
+
+STEP 2  File Downloader
+   Pulls the raw file regardless of format
+   (Excel · PDF · CSV · scanned documents)
+
+STEP 3  File Extraction API
+   Converts any format into raw readable text
+
+STEP 4  ANALYSER  [Gemini AI Agent]
+   Reads the raw text
+   Identifies multiple separate tables in one file
+   Invents the correct column headers for each table
+   Maps data to the right Client Workbook and Tab
+
+STEP 5  Workflow Manager  [Gemini AI Agent]
+   Spreadsheet missing?  Create workbook and all tabs
+   Tabs missing?         Create only the missing tabs
+   Everything exists?    Route straight to data write
+
+STEP 6  Google Sheets Writer
+   Data lands in exactly the right place
+
+STEP 7  Batch Processor  [3 files at a time + Wait nodes]
+   Prevents Google API rate-limit errors at scale",decisions:"Two AI agents with separate jobs — one reads data, one manages the spreadsheet infrastructure. A central Mapping Sheet config file means onboarding a new client requires only adding one row, no code changes. Batch processing (3 at a time) with deliberate Wait nodes prevents the Google API from being overwhelmed. A deduplication guard blocks already-processed files before any write happens."},p2:{cat:"02 of 08 · Company A (Media) · 77 nodes",title:"Film Revenue Reporter",img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80",tags:["Easybill API","Google Sheets API v4","Google Drive","Slack","Code JS","Split In Batches","Aggregate","Wait","Merge","If","Switch"],problem:"Every film has a unique licensing contract with different VOD percentage splits. When an invoice arrived, someone had to manually open the contract, read the splits, find the correct film spreadsheet, build the right column structure, and write the revenue row. One invoice could cover multiple films. Doing this by hand every cycle was slow and error-prone.",flow:"STEP 1  Two things run at the same time
+   Easybill API fetches the invoice
+   Reference Naming Sheet loads the film name map
+
+STEP 2  Parse Invoice
+   Extracts RLM accounting numbers per film
+
+STEP 3  Drive Lookup
+   Matches each RLM number to the film's Google Sheet
+   File missing?  Slack alert fires immediately
+
+STEP 4  Pre-Flight Duplicate Check
+   Already processed?  Skip and send Slack summary
+   New entry?          Continue
+
+STEP 5  Fetch Live Exchange Rates
+
+STEP 6  Read Film Contract Tab
+   Pulls: Licensee, Territory, VOD type, percentage splits
+
+STEP 7  Tab Finder
+   Lists every tab inside the film's spreadsheet
+
+STEP 8  Decision Maker
+   AI Report tab exists?  Append row
+   Does not exist?        Create tab, Slack alert, Append
+
+STEP 9  Header Builder
+   Reads contract, drops 0% columns, builds column list
+
+STEP 10  Full Report Builder
+    Assembles the complete row with correct currency routing
+
+STEP 11  Append Row  [Google Sheets API v4]
+
+STEP 12  Aggregate and Slack success summary",decisions:"Column headers are generated at runtime from the actual contract, never hardcoded. Three separate Slack alerts (missing files, skipped duplicates, success) keep the team informed at every stage. Rate-limit Wait nodes are placed between API-heavy steps. Loop Over Spreadsheets handles multiple films per invoice without restarting the pipeline."},p3:{cat:"03 of 08 · Company A (Media) · 9 nodes",title:"Invoice Inventory Sync",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80",tags:["Easybill API","Google Sheets","Google Drive","Code JS","Merge","Set"],problem:"Invoices from Easybill needed to be matched against an existing inventory sheet and their corresponding Drive files by RLM number — without ever writing the same invoice entry twice. Doing this manually meant constantly checking whether something had already been recorded.",flow:"STEP 1  Trigger and configuration loaded
+
+STEP 2  Three things run in parallel
+   Easybill API fetches invoices
+   Google Sheets reads the current inventory
+   Google Drive scans for matching RLM files
+
+STEP 3  Wait for All Data  [Merge — 3 inputs combined]
+
+STEP 4  Deduplicate and Match  [Code Node]
+   Builds: RLM number to Drive file ID map
+   Builds: existing inventory key set
+   Skips anything already recorded
+   Tags: matched vs unmatched items
+
+STEP 5  Update Inventory Sheet
+   Only net-new entries are written
+   Movie title · RLM number · Invoice no · Date",decisions:"All three data sources are fetched in parallel, reducing total run time significantly. The deduplication key is a combination of RLM number and invoice number, making false positives effectively impossible. The Merge node waits for all three branches before any logic runs — no partial data is ever processed."},p4:{cat:"04 of 08 · Company A (Media) · 5 nodes",title:"AI CV Generator",img:"https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80",tags:["Gemini AI","Structured Output Parser","Code JS","Manual Trigger","Set"],problem:"The company needed polished, industry-specific CVs from staff members for a high-stakes external proposal. Raw CVs came in all styles and lengths, contained irrelevant experience, and were not written for a film industry audience. Rewriting each one manually was inconsistent and slow.",flow:"STEP 1  Input  [Set Node]
+   Raw CV text and job title injected as variables
+
+STEP 2  CV Rewriter  [Gemini AI Agent]
+   Rewrites the CV for the specific proposal context
+   Enforces strict 1-page limit
+   Removes experience unrelated to film or media
+   Active voice, professional tone
+
+STEP 3  Structured Output Parser
+   Forces Gemini into a strict JSON schema
+   { name, title, profile summary, key skills, experience, education }
+
+STEP 4  HTML Builder  [Code Node]
+   Company logo and branded layout
+   Two-column design
+   Exported as base64 doc binary
+
+STEP 5  Output
+   Downloadable Word Document",decisions:"A Structured Output Parser is used instead of plain text — this guarantees the AI always returns machine-readable JSON that the next node can process reliably. The system prompt gives the AI a specific persona (proposal editor) rather than generic instructions, improving output quality significantly. The Word document is built from HTML which allows full branding control without needing a Word template."},p5:{cat:"05 of 08 · Client B (Kenyan Business) · 15 nodes",title:"WhatsApp Invoice Sender",img:"https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=900&q=80",tags:["Evolution API","WhatsApp","Google Sheets","PDF Service","Code JS","If","HTML Node","Wait"],problem:"Customers were ignoring email invoices. The client needed PDF invoices delivered directly to customers on WhatsApp — where they actually respond — automatically the moment a sale was recorded. Every send needed to update the record so no invoice was ever sent twice.",flow:"STEP 1  Trigger  [Google Sheets — new row added]
+
+STEP 2  Filter: skip already-sent invoices  [If Node]
+
+STEP 3  Format Phone Numbers  [Code Node]
+   Kenyan number normalisation
+   0712... becomes 254712...
+   7xx...  becomes 2547xx...
+   Invalid or empty rows removed here
+
+STEP 4  Generate HTML Invoice  [HTML Node]
+   Branded invoice layout built from sheet data
+
+STEP 5  Convert to PDF  [HTTP Request to PDF Service]
+
+STEP 6  Prepare Payload  [Code Node]
+   Strips base64 prefix
+   Structures Evolution API sendMedia request
+
+STEP 7  Send PDF via WhatsApp  [Evolution API]
+   PDF delivered to customer's WhatsApp chat
+
+STEP 8  Mark as Sent  [Google Sheets update]",decisions:"onError continueRegularOutput is set on both HTTP nodes — if one customer send fails, the workflow keeps going and processes the rest without stopping. Phone number normalisation handles Kenyan number formats that would otherwise silently fail in the Evolution API. The Google Sheets trigger means no polling — the workflow fires only when a new sale is actually recorded."},p6:{cat:"06 of 08 · Client B (Kenyan Business) · 10 nodes",title:"Payment Reminder Bot",img:"https://images.unsplash.com/photo-1586941962799-2f31c7e06b3e?w=900&q=80",tags:["Evolution API","WhatsApp","Google Sheets","Schedule Trigger","Code JS"],problem:"Chasing unpaid invoices manually was inconsistent — some debtors received too many messages, others were forgotten. The tone of messages never matched how urgent the situation was. There was no system to track who had been messaged or respect reminder intervals.",flow:"STEP 1  9AM every morning  [Schedule Trigger]
+
+STEP 2  Read full debtors sheet  [Google Sheets]
+
+STEP 3  Filter and Score  [Code Node]
+   Skip rows marked Paused or Paid
+   Check: has it been 3 or more days since last reminder?
+   Calculate: days until or past the due date
+   Choose message tone:
+     Before due date   friendly, no pressure
+     Due today         clear and direct
+     Overdue           escalating urgency per day overdue
+
+STEP 4  Send WhatsApp  [Evolution API sendText]
+
+STEP 5  Update Sheet  [Google Sheets]
+   Logs: date contacted and current status",decisions:"The 3-day interval is calculated from the last contacted date stored in the sheet — no external database needed. Tone logic lives in a single Code node, making it easy to adjust message language. The status dropdown (Not Yet Paid, Paused, Paid) gives the client full control over who receives messages without touching the workflow."},p7:{cat:"07 of 08 · Client B (Kenyan Business) · 16 nodes",title:"Customer Holiday Messenger",img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80",tags:["Claude Haiku","Anthropic Node","Evolution API","WhatsApp","Google Sheets","Schedule Trigger","Code JS","Split In Batches"],problem:"The client wanted to send personal, warm messages to customers on Kenya public holidays and on the first day of each month. Writing a unique message for every customer on those days is not practical at scale — but sending the same message to everyone defeats the purpose.",flow:"STEP 1  8AM every morning  [Schedule Trigger]
+
+STEP 2  Check Date  [Code Node]
+   Full Kenya public holiday calendar built in
+   Checks if today is the 1st of the month
+   Returns: isSpecialDay, holidayName, dayType
+
+STEP 3  Is today a special day?  [If Node]
+   NO   Workflow stops immediately
+   YES  Continue
+
+STEP 4  Get all customers  [Google Sheets]
+
+STEP 5  Loop per customer  [Split In Batches]
+
+STEP 6  Build AI Prompt  [Code Node]
+   Includes: customer name, holiday name, tone guidelines
+
+STEP 7  Write message  [Claude Haiku — Native Anthropic Node]
+   Generates a unique warm WhatsApp message
+   Different for every single customer
+
+STEP 8  Extract message  [Code Node]
+
+STEP 9  Send WhatsApp  [Evolution API]
+
+STEP 10  Wait  [rate limiting]
+    Loops back to next customer",decisions:"Claude Haiku is used because it is fast and affordable for high-volume short-form message generation. The native Anthropic n8n node is used directly, no HTTP wrapper needed. The date check runs before fetching any customer data — if today is not a special day, the workflow exits in seconds with zero wasted API calls. The full Kenya public holiday calendar is hardcoded so the AI can reference each holiday by its actual name."},p8:{cat:"08 of 08 · Personal Project · 13 nodes",title:"Flight Finder and Alerts",img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80",tags:["SerpAPI","AviationStack API","Google Sheets","Gmail","Code JS","Manual Trigger"],problem:"Searching Google Flights, logging all the options to a spreadsheet, and then separately checking the live status of the best flight requires multiple tabs and manual copying. This workflow collapses all of those steps into a single click.",flow:"STEP 1  Manual Trigger
+
+STEP 2  Two things run at the same time
+   SerpAPI searches Google Flights (NBO to ACC)
+   Returns all available flights with prices and times
+
+STEP 3  Split results into two paths
+   Path A  All flights logged to Google Sheets
+           Every option: price, flight number, times
+
+   Path B  Find Earliest Departure  [Code Node]
+           Sorts all flights by departure time
+           Returns the single earliest flight object
+
+STEP 4  AviationStack API
+   Takes the flight number from the earliest flight
+   Fetches its real-time status
+
+STEP 5  Gmail — formatted HTML email
+   Earliest flight details and live departure status
+   Sent automatically to inbox",decisions:"Both the log all flights and find earliest flight branches run in parallel from the same SerpAPI response — no duplicate API calls. The Code node sorts by parsed datetime objects, not string comparison, which correctly handles overnight flights and time zones. The Gmail email is HTML-formatted so it reads cleanly on mobile."}};
+function openModal(id){const p=P[id];document.getElementById('m-cat').textContent=p.cat;document.getElementById('m-title').textContent=p.title;document.getElementById('m-img').src=p.img;document.getElementById('m-img').alt=p.title;document.getElementById('m-problem').textContent=p.problem;document.getElementById('m-flow').textContent=p.flow;document.getElementById('m-decisions').textContent=p.decisions;document.getElementById('m-tags').innerHTML=p.tags.map(t=>`<span class="mtag">${t}</span>`).join('');document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(e){if(!e||e.target===document.getElementById('overlay')||e.currentTarget.classList.contains('modal-close-btn')){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal({target:document.getElementById('overlay')});});
+const obs=new IntersectionObserver(entries=>{entries.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
